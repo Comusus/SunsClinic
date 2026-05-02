@@ -7,26 +7,26 @@ export const services: Service[] = [
     shortDescription:
       'Fine, sterile needles placed at specific points to restore the natural flow of qi and blood.',
     longDescription:
-      'Acupuncture is one of the oldest and most widely practiced forms of medicine. By stimulating precise points along the body, treatment supports the nervous system, reduces inflammation, and helps restore balance for a wide range of conditions.',
+      'Drawing on classical Chinese acupuncture, five element acupuncture, and auricular (ear) acupuncture, Dr. Sun tailors each session to the patient. Acupuncture is widely used for pain, stress, sleep, hormonal balance, and recovery, and it pairs beautifully with the other modalities offered at the clinic.',
     benefits: [
-      'Pain relief and recovery',
-      'Stress, anxiety, and sleep support',
-      'Digestive and immune health',
-      'Hormonal balance and fertility',
+      'Back, neck, shoulder, knee, and joint pain',
+      'Headaches, migraines, and facial pain',
+      'Sciatica, tennis elbow, carpal tunnel',
+      'Stress, anxiety, depression, and insomnia',
     ],
   },
   {
     slug: 'herbal-medicine',
-    title: 'Herbal Medicine',
+    title: 'Chinese Herbal Medicine',
     shortDescription:
       'Custom Chinese herbal formulas tailored to your individual constitution and concerns.',
     longDescription:
-      'Each herbal formula is carefully composed for the patient in front of us. Drawing on thousands of years of recorded tradition and a modern understanding of pharmacology, we use safe, high-quality herbs to support healing between sessions.',
+      'Each herbal formula is composed for the patient in front of us, drawing on thousands of years of recorded tradition. Herbs work between visits to support the changes acupuncture initiates, and they address conditions that benefit from longer-term care.',
     benefits: [
       'Personalized formulas',
-      'Supports chronic and acute concerns',
-      'Granules, raw herbs, or capsules',
-      'Continuous adjustment as you progress',
+      'Allergies, sinusitis, and respiratory health',
+      'Menopause, fertility, and women’s health',
+      'Digestive and immune support',
     ],
   },
   {
@@ -35,7 +35,7 @@ export const services: Service[] = [
     shortDescription:
       'Gentle suction to release tight fascia, improve circulation, and ease muscle tension.',
     longDescription:
-      'Cupping uses warmed glass or silicone cups to lift the soft tissue, drawing fresh blood to the area and releasing stagnation. It pairs well with acupuncture for stubborn tightness, post-exercise soreness, and respiratory support.',
+      'Cupping uses warmed glass or silicone cups to lift the soft tissue, drawing fresh blood to the area and releasing stagnation. It pairs especially well with acupuncture for stubborn tightness, post-injury recovery, and respiratory support.',
     benefits: [
       'Relieves muscular tension',
       'Improves local circulation',
@@ -44,45 +44,31 @@ export const services: Service[] = [
     ],
   },
   {
-    slug: 'moxibustion',
-    title: 'Moxibustion',
+    slug: 'electro-acupuncture',
+    title: 'Electro-Acupuncture',
     shortDescription:
-      'Warming therapy using mugwort to nourish qi and warm cold patterns in the body.',
+      'A gentle, low-frequency current delivered through acupuncture needles for amplified results.',
     longDescription:
-      'Moxibustion uses gentle, focused warmth from burning mugwort (moxa) over specific points. It is especially helpful for cold, deficient, and chronic patterns and is often combined with acupuncture during a session.',
+      'Electro-acupuncture connects two acupuncture needles to a small device that passes a mild, adjustable current between them. It is particularly effective for chronic pain, nerve-related conditions, and post-injury rehabilitation, and it is always tuned to the patient’s comfort.',
+    benefits: [
+      'Chronic and stubborn pain',
+      'Bell’s palsy and paralysis support',
+      'Post-injury and post-surgical recovery',
+      'Nerve and muscle re-education',
+    ],
+  },
+  {
+    slug: 'moxibustion',
+    title: 'Moxibustion & Magic Lamp',
+    shortDescription:
+      'Warming therapy using mugwort and infrared light to nourish qi and warm cold patterns.',
+    longDescription:
+      'Moxibustion uses gentle, focused warmth from burning mugwort (moxa) over specific points, while the TDP "magic lamp" provides deep, mineral-rich infrared heat. Both are used to warm cold patterns, nourish deficiency, and amplify the effects of an acupuncture session.',
     benefits: [
       'Warms cold conditions',
       'Supports women’s health',
-      'Nourishes deficient patterns',
+      'Eases menstrual discomfort',
       'Soothing and grounding',
-    ],
-  },
-  {
-    slug: 'tui-na',
-    title: 'Tui Na & Bodywork',
-    shortDescription:
-      'Therapeutic Chinese bodywork combining acupressure, stretching, and joint mobilization.',
-    longDescription:
-      'Tui na is the manual-therapy branch of Chinese medicine. It works on the same channels as acupuncture but uses skilled hands instead of needles, making it a great option for sensitive patients or musculoskeletal complaints.',
-    benefits: [
-      'Effective for musculoskeletal pain',
-      'Needle-free option',
-      'Releases adhesions and tension',
-      'Suitable for all ages',
-    ],
-  },
-  {
-    slug: 'wellness-consultations',
-    title: 'Wellness Consultations',
-    shortDescription:
-      'Personalized lifestyle, diet, and self-care guidance grounded in Chinese medicine.',
-    longDescription:
-      'Healing happens between visits as much as during them. We offer thoughtful guidance around food, movement, sleep, and seasonal living so the work we do together carries through to your everyday life.',
-    benefits: [
-      'Diet and nutrition guidance',
-      'Seasonal lifestyle adjustments',
-      'Stress and sleep strategies',
-      'Whole-person care',
     ],
   },
 ]
