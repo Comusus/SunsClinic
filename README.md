@@ -2,7 +2,7 @@
 
 Marketing website for Sun's Acupuncture & Herbal Clinic in South Setauket, NY.
 Built with Vite + React + TypeScript + Tailwind CSS, deployed as a static site
-to GitHub Pages.
+to GitHub Pages and served from `https://suns.clinic`.
 
 ## Local development
 
@@ -11,7 +11,7 @@ npm install
 npm run dev
 ```
 
-Visit http://localhost:5173/SunsClinic/
+Visit http://localhost:5173/
 
 ## Build & preview
 
@@ -39,19 +39,40 @@ data files so content updates do not require touching layout code.
 Pushes to `main` trigger `.github/workflows/deploy.yml`, which builds the site
 and publishes `dist/` to GitHub Pages.
 
-The site is served from the repo's subpath, so `vite.config.ts` sets
-`base: '/SunsClinic/'` and `src/main.tsx` uses `<BrowserRouter basename="/SunsClinic">`.
-If you switch to a custom domain or rename the repo, update both.
+The site is served from the apex domain `suns.clinic`. The `public/CNAME` file
+tells GitHub Pages to use that domain on every deploy. `vite.config.ts` uses
+`base: '/'` since assets live at the domain root.
 
 To enable Pages on a fresh repo:
 1. Push the project to GitHub.
 2. Repo → Settings → Pages → Source: **GitHub Actions**.
 3. The next push to `main` will deploy automatically.
 
+### Custom domain (suns.clinic) DNS
+
+Apex (`suns.clinic`) needs four A records pointing at GitHub's Pages servers:
+
+```
+185.199.108.153
+185.199.109.153
+185.199.110.153
+185.199.111.153
+```
+
+Optional IPv6 AAAA records for the apex:
+
+```
+2606:50c0:8000::153
+2606:50c0:8001::153
+2606:50c0:8002::153
+2606:50c0:8003::153
+```
+
+For the `www` subdomain, a single CNAME pointing at `comusus.github.io`.
+
 ## Roadmap
 
-- [ ] Replace placeholder bio, address, phone, hours with real content
-- [ ] Add real clinic photography (replace gradient placeholders in `Hero.tsx`)
+- [ ] Replace the building photo on Home → Meet Your Practitioner with a portrait of Dr. Sun
+- [ ] Higher-resolution exterior photography
 - [ ] Live Google reviews via a serverless function (Cloudflare Pages / Netlify)
 - [ ] Online contact form / booking integration
-- [ ] Custom domain
