@@ -1,6 +1,6 @@
-import { MapPin, Phone, Mail, Clock } from 'lucide-react'
+import { MapPin, Phone, Mail, Clock, ShieldCheck } from 'lucide-react'
 import SectionHeading from '../components/SectionHeading'
-import { clinicInfo } from '../data/clinicInfo'
+import { clinicInfo, acceptedInsurance } from '../data/clinicInfo'
 
 export default function Contact() {
   const phoneHref = `tel:${clinicInfo.phone.replace(/[^0-9+]/g, '')}`
@@ -52,12 +52,14 @@ export default function Contact() {
                     {clinicInfo.phone}
                   </a>
                 </li>
-                <li className="flex items-start gap-3">
-                  <Mail size={18} className="mt-1 text-clay-500" />
-                  <a className="hover:text-clay-700" href={`mailto:${clinicInfo.email}`}>
-                    {clinicInfo.email}
-                  </a>
-                </li>
+                {clinicInfo.email && (
+                  <li className="flex items-start gap-3">
+                    <Mail size={18} className="mt-1 text-clay-500" />
+                    <a className="hover:text-clay-700" href={`mailto:${clinicInfo.email}`}>
+                      {clinicInfo.email}
+                    </a>
+                  </li>
+                )}
               </ul>
             </div>
 
@@ -88,6 +90,44 @@ export default function Contact() {
               </a>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="bg-cream-100 py-16 sm:py-20">
+        <div className="container-page">
+          <SectionHeading
+            eyebrow="Insurance"
+            title="Accepted insurance plans"
+            description="Many plans cover acupuncture in network. Coverage varies by plan, so please verify your benefits with your insurer before your first visit."
+            align="left"
+          />
+          <div className="mt-10 overflow-hidden rounded-2xl border border-clay-100 bg-cream-50 shadow-sm">
+            <table className="w-full text-left text-sm">
+              <thead className="bg-clay-50 text-ink">
+                <tr>
+                  <th scope="col" className="px-6 py-3 font-medium">
+                    <span className="inline-flex items-center gap-2">
+                      <ShieldCheck size={16} className="text-clay-600" aria-hidden />
+                      Plan
+                    </span>
+                  </th>
+                  <th scope="col" className="px-6 py-3 font-medium">Status</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-clay-100">
+                {acceptedInsurance.map((plan) => (
+                  <tr key={plan} className="hover:bg-clay-50/40">
+                    <td className="px-6 py-3 text-ink">{plan}</td>
+                    <td className="px-6 py-3 text-ink-soft">In network</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-4 text-xs text-ink-soft">
+            Don&rsquo;t see your plan? Give us a call. We can often check eligibility for you, and
+            self-pay options are available at $50 per visit.
+          </p>
         </div>
       </section>
     </>

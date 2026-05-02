@@ -31,17 +31,13 @@ export default function Hero() {
         </div>
 
         <div className="relative">
-          <div className="aspect-[4/5] w-full max-w-md mx-auto overflow-hidden rounded-[28px] bg-gradient-to-br from-sage-200 via-cream-100 to-clay-200 shadow-xl ring-1 ring-clay-100">
-            <div className="flex h-full w-full items-center justify-center text-center px-8">
-              <div>
-                <p className="font-serif text-2xl text-ink">A calm, intentional space.</p>
-                <p className="mt-3 text-sm text-ink-soft">
-                  Hero imagery placeholder — drop a clinic photo into{' '}
-                  <code className="rounded bg-cream-100 px-1.5 py-0.5">public/images/</code> and
-                  swap this block in <code className="rounded bg-cream-100 px-1.5 py-0.5">Hero.tsx</code>.
-                </p>
-              </div>
-            </div>
+          <div className="aspect-[4/5] w-full max-w-md mx-auto overflow-hidden rounded-[28px] shadow-xl ring-1 ring-clay-100 bg-cream-100">
+            <img
+              src={`${import.meta.env.BASE_URL}images/clinic-exterior.jpg`}
+              alt="Sun's Acupuncture & Herbal Clinic exterior in South Setauket, NY"
+              loading="eager"
+              className="h-full w-full object-cover"
+            />
           </div>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import { NavLink, Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
+import Logo from './Logo'
 import { clinicInfo } from '../data/clinicInfo'
 
 const navItems = [
@@ -17,12 +18,9 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-30 border-b border-clay-100/60 bg-cream-50/85 backdrop-blur">
       <div className="container-page flex h-20 items-center justify-between">
-        <Link to="/" className="flex flex-col leading-tight" onClick={() => setOpen(false)}>
-          <span className="font-serif text-2xl text-ink">{clinicInfo.shortName}</span>
-          <span className="text-[11px] uppercase tracking-[0.25em] text-clay-500">
-            Acupuncture &amp; Herbal Medicine
-          </span>
-        </Link>
+        <div onClick={() => setOpen(false)}>
+          <Logo variant="compact" />
+        </div>
 
         <nav className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
@@ -40,7 +38,7 @@ export default function Navbar() {
             </NavLink>
           ))}
           <a href={`tel:${clinicInfo.phone.replace(/[^0-9+]/g, '')}`} className="btn-primary">
-            Book a Visit
+            Book a Visit by Phone Call
           </a>
         </nav>
 
@@ -77,7 +75,7 @@ export default function Navbar() {
               className="btn-primary mt-2 self-start"
               onClick={() => setOpen(false)}
             >
-              Book a Visit
+              Book a Visit by Phone Call
             </a>
           </div>
         </div>

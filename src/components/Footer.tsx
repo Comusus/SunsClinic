@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { MapPin, Phone, Mail } from 'lucide-react'
+import Logo from './Logo'
 import { clinicInfo } from '../data/clinicInfo'
 
 export default function Footer() {
@@ -8,8 +9,8 @@ export default function Footer() {
     <footer className="mt-24 border-t border-clay-100 bg-clay-50">
       <div className="container-page grid gap-10 py-14 md:grid-cols-3">
         <div>
-          <p className="font-serif text-2xl">{clinicInfo.name}</p>
-          <p className="mt-3 text-sm text-ink-soft max-w-sm">
+          <Logo variant="full" asLink={false} />
+          <p className="mt-5 text-sm text-ink-soft max-w-sm">
             {clinicInfo.tagline}. Practitioner: {clinicInfo.practitioner},{' '}
             {clinicInfo.practitionerCredentials}.
           </p>
@@ -37,12 +38,14 @@ export default function Footer() {
               {clinicInfo.phone}
             </a>
           </p>
-          <p className="flex items-center gap-2">
-            <Mail size={16} className="text-clay-500" />
-            <a className="hover:text-clay-700" href={`mailto:${clinicInfo.email}`}>
-              {clinicInfo.email}
-            </a>
-          </p>
+          {clinicInfo.email && (
+            <p className="flex items-center gap-2">
+              <Mail size={16} className="text-clay-500" />
+              <a className="hover:text-clay-700" href={`mailto:${clinicInfo.email}`}>
+                {clinicInfo.email}
+              </a>
+            </p>
+          )}
         </div>
 
         <div className="text-sm">
