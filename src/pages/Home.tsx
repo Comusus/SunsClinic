@@ -6,6 +6,7 @@ import ReviewCard from '../components/ReviewCard'
 import { services } from '../data/services'
 import { reviews } from '../data/reviews'
 import { clinicInfo } from '../data/clinicInfo'
+import { trackEvent } from '../lib/analytics'
 
 export default function Home() {
   const featuredServices = services.slice(0, 3)
@@ -91,7 +92,11 @@ export default function Home() {
             description="New patients are warmly welcomed. Reach out to book a consultation and we'll find a time that works for you."
           />
           <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <a href={`tel:${clinicInfo.phone.replace(/[^0-9+]/g, '')}`} className="btn-primary">
+            <a
+              href={`tel:${clinicInfo.phone.replace(/[^0-9+]/g, '')}`}
+              className="btn-primary"
+              onClick={() => trackEvent('phone_call_clicked', { location: 'home_cta' })}
+            >
               Call {clinicInfo.phone}
             </a>
             <Link to="/contact" className="btn-ghost">Contact the clinic</Link>

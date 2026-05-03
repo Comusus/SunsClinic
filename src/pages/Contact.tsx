@@ -1,6 +1,7 @@
 import { MapPin, Phone, Mail, Clock, ShieldCheck } from 'lucide-react'
 import SectionHeading from '../components/SectionHeading'
 import { clinicInfo, acceptedInsurance } from '../data/clinicInfo'
+import { trackEvent } from '../lib/analytics'
 
 export default function Contact() {
   const phoneHref = `tel:${clinicInfo.phone.replace(/[^0-9+]/g, '')}`
@@ -41,6 +42,7 @@ export default function Contact() {
                       target="_blank"
                       rel="noreferrer"
                       className="mt-1 inline-block text-sm text-clay-700 hover:underline"
+                      onClick={() => trackEvent('directions_clicked', { location: 'contact' })}
                     >
                       Get directions →
                     </a>
@@ -48,14 +50,22 @@ export default function Contact() {
                 </li>
                 <li className="flex items-start gap-3">
                   <Phone size={18} className="mt-1 text-clay-500" />
-                  <a className="hover:text-clay-700" href={phoneHref}>
+                  <a
+                    className="hover:text-clay-700"
+                    href={phoneHref}
+                    onClick={() => trackEvent('phone_call_clicked', { location: 'contact_inline' })}
+                  >
                     {clinicInfo.phone}
                   </a>
                 </li>
                 {clinicInfo.email && (
                   <li className="flex items-start gap-3">
                     <Mail size={18} className="mt-1 text-clay-500" />
-                    <a className="hover:text-clay-700" href={`mailto:${clinicInfo.email}`}>
+                    <a
+                      className="hover:text-clay-700"
+                      href={`mailto:${clinicInfo.email}`}
+                      onClick={() => trackEvent('email_clicked', { location: 'contact' })}
+                    >
                       {clinicInfo.email}
                     </a>
                   </li>
@@ -85,7 +95,11 @@ export default function Contact() {
                 The fastest way to reach us is by calling directly. An online contact form will be
                 added in a future update.
               </p>
-              <a href={phoneHref} className="btn-primary mt-6">
+              <a
+                href={phoneHref}
+                className="btn-primary mt-6"
+                onClick={() => trackEvent('phone_call_clicked', { location: 'contact_panel' })}
+              >
                 Call {clinicInfo.phone}
               </a>
             </div>

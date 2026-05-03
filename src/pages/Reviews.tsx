@@ -3,6 +3,7 @@ import SectionHeading from '../components/SectionHeading'
 import ReviewCard from '../components/ReviewCard'
 import { reviews } from '../data/reviews'
 import { REVIEW_PROFILE_URLS } from '../types'
+import { trackEvent } from '../lib/analytics'
 
 export default function Reviews() {
   return (
@@ -47,6 +48,7 @@ export default function Reviews() {
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary"
+              onClick={() => trackEvent('outbound_clicked', { platform: 'google', location: 'reviews_cta' })}
             >
               Google Reviews <ExternalLink size={14} aria-hidden />
             </a>
@@ -55,6 +57,7 @@ export default function Reviews() {
               target="_blank"
               rel="noopener noreferrer"
               className="btn-ghost"
+              onClick={() => trackEvent('outbound_clicked', { platform: 'yelp', location: 'reviews_cta' })}
             >
               Yelp <ExternalLink size={14} aria-hidden />
             </a>
@@ -63,6 +66,7 @@ export default function Reviews() {
               target="_blank"
               rel="noopener noreferrer"
               className="btn-ghost"
+              onClick={() => trackEvent('outbound_clicked', { platform: 'healthprofs', location: 'reviews_cta' })}
             >
               HealthProfs <ExternalLink size={14} aria-hidden />
             </a>
