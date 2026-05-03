@@ -41,10 +41,10 @@ export default function Home() {
               {clinicInfo.practitioner}, {clinicInfo.practitionerCredentials}
             </h2>
             <p className="mt-5 text-lg text-ink-soft leading-relaxed">
-              Trained at North China Medical College and a part-time research scientist at SUNY
-              Stony Brook for 25 years, Dr. {clinicInfo.practitioner.split(' ')[1]} brings four
-              decades of clinical experience and a research-informed perspective to every patient
-              she sees in {clinicInfo.city}.
+              Trained at North China Medical College, Dr.{' '}
+              {clinicInfo.practitioner.split(' ')[1]} brings four decades of clinical experience
+              to every patient she sees in {clinicInfo.city}. Separately, she also worked as a
+              part-time Research Scientist at SUNY Stony Brook from 1995 to 2020.
             </p>
             <div className="mt-8">
               <Link to="/about" className="btn-primary">Read her story</Link>

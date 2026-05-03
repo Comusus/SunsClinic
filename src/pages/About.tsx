@@ -67,10 +67,9 @@ export default function About() {
               years before relocating to the United States in 1989.
             </p>
             <p>
-              Alongside her clinical work, Dr. Sun was a part-time Research Scientist at the SUNY
-              at Stony Brook School of Medicine from June 1995 until 2020, contributing to research
-              that bridges Traditional Chinese Medicine and Western medical science. A list of her
-              peer-reviewed publications is available on her{' '}
+              Separately from her clinical practice, Dr. Sun also held a part-time appointment as
+              a Research Scientist at the SUNY at Stony Brook School of Medicine from June 1995
+              until 2020. A list of her peer-reviewed publications is available on her{' '}
               <a
                 href={RESEARCHGATE_URL}
                 target="_blank"
@@ -114,8 +113,8 @@ export default function About() {
             <div className="rounded-2xl border border-clay-100 bg-cream-50 p-7 shadow-sm">
               <p className="eyebrow mb-3">Research</p>
               <p className="text-sm text-ink-soft leading-relaxed">
-                Dr. Sun spent 25 years as a part-time Research Scientist at SUNY Stony Brook,
-                bringing a research-informed perspective to her clinical practice.
+                Separately from her clinical practice, Dr. Sun spent 25 years (1995 to 2020) as a
+                part-time Research Scientist at SUNY Stony Brook School of Medicine.
               </p>
               <a
                 href={RESEARCHGATE_URL}
