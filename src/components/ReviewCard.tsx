@@ -1,5 +1,6 @@
 import { Star, ExternalLink } from 'lucide-react'
 import type { Review } from '../types'
+import { trackEvent } from '../lib/analytics'
 
 interface ReviewCardProps {
   review: Review
@@ -28,6 +29,12 @@ export default function ReviewCard({ review }: ReviewCardProps) {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1 text-clay-700 hover:text-clay-800 hover:underline"
+            onClick={() =>
+              trackEvent('outbound_clicked', {
+                platform: review.source.toLowerCase(),
+                location: 'review_card',
+              })
+            }
           >
             {review.source}
             <ExternalLink size={12} aria-hidden />

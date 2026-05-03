@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { MapPin, Phone, Mail } from 'lucide-react'
 import Logo from './Logo'
 import { clinicInfo } from '../data/clinicInfo'
+import { trackEvent } from '../lib/analytics'
 
 export default function Footer() {
   const year = new Date().getFullYear()
@@ -34,14 +35,22 @@ export default function Footer() {
           </p>
           <p className="flex items-center gap-2">
             <Phone size={16} className="text-clay-500" />
-            <a className="hover:text-clay-700" href={`tel:${clinicInfo.phone.replace(/[^0-9+]/g, '')}`}>
+            <a
+              className="hover:text-clay-700"
+              href={`tel:${clinicInfo.phone.replace(/[^0-9+]/g, '')}`}
+              onClick={() => trackEvent('phone_call_clicked', { location: 'footer' })}
+            >
               {clinicInfo.phone}
             </a>
           </p>
           {clinicInfo.email && (
             <p className="flex items-center gap-2">
               <Mail size={16} className="text-clay-500" />
-              <a className="hover:text-clay-700" href={`mailto:${clinicInfo.email}`}>
+              <a
+                className="hover:text-clay-700"
+                href={`mailto:${clinicInfo.email}`}
+                onClick={() => trackEvent('email_clicked', { location: 'footer' })}
+              >
                 {clinicInfo.email}
               </a>
             </p>
@@ -55,6 +64,7 @@ export default function Footer() {
             <li><Link to="/services" className="hover:text-clay-700">Services</Link></li>
             <li><Link to="/reviews" className="hover:text-clay-700">Reviews</Link></li>
             <li><Link to="/contact" className="hover:text-clay-700">Contact &amp; Hours</Link></li>
+            <li><Link to="/privacy" className="hover:text-clay-700">Privacy</Link></li>
           </ul>
         </div>
       </div>

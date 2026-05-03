@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 import Logo from './Logo'
 import { clinicInfo } from '../data/clinicInfo'
+import { trackEvent } from '../lib/analytics'
 
 const navItems = [
   { to: '/', label: 'Home' },
@@ -37,7 +38,11 @@ export default function Navbar() {
               {item.label}
             </NavLink>
           ))}
-          <a href={`tel:${clinicInfo.phone.replace(/[^0-9+]/g, '')}`} className="btn-primary">
+          <a
+            href={`tel:${clinicInfo.phone.replace(/[^0-9+]/g, '')}`}
+            className="btn-primary"
+            onClick={() => trackEvent('phone_call_clicked', { location: 'navbar_desktop' })}
+          >
             Book a Visit by Phone Call
           </a>
         </nav>
@@ -73,7 +78,10 @@ export default function Navbar() {
             <a
               href={`tel:${clinicInfo.phone.replace(/[^0-9+]/g, '')}`}
               className="btn-primary mt-2 self-start"
-              onClick={() => setOpen(false)}
+              onClick={() => {
+                trackEvent('phone_call_clicked', { location: 'navbar_mobile' })
+                setOpen(false)
+              }}
             >
               Book a Visit by Phone Call
             </a>
